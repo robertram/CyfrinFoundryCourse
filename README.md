@@ -1,4 +1,4 @@
-## Foundry
+## Cyfrin Foundry Course
 
 **Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
 
@@ -76,40 +76,70 @@ echo $RPC_URL
 
 # Run Anvil local blockchain
 
+```shell
 anvil
+```
 
-# Anvil Rpc
+# Anvil Rpc deploy smart contract
 
+## Adding rpc and hidden private key
+
+```shell
 forge create SimpleStorage --rpc-url http://127.0.0.1:8545 --interactive
+```
 
+## Adding rpc and private key
+
+```shell
 forge create SimpleStorage --rpc-url http://127.0.0.1:8545 --private-key 0xasdasd
+```
 
+## Deploy to Anvil by default and hidden private key
+
+```shell
 forge create SimpleStorage --interactive
+```
 
 # Deploy Smart Contract with scripts
 
+```shell
 forge script script/DeploySimpleStorage.s.sol --rpc-url http://127.0.0.1:8545 --broadcast --private-key [private-key]
+```
 
+Using the .env variables
+
+```shell
 forge script script/DeploySimpleStorage.s.sol --rpc-url $RPC_URL --broadcast --private-key $PRIVATE_KEY
+```
 
 *NOTE*: Having the .env file is cool in development but for production, use --interactive for the private key
 
 # Interact with smart contract
 
-Cast
+Interact with contracts that already have been deployed
 
-Interact with contracts that already have been deploy
+```shell
+Cast
+```
 
 ## Send transaction
+```shell
 cast send 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512 "store(uint256)" 123 --rpc-url $RPC_URL --private-key $PRIVATE_KEY
+```
 
 ## Read function
+```shell
 cast call 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512 "retrieve()" 
+```
 
 # Thirdweb deploy
 
+```shell
 npx thirdweb deploy
+```
 
 # Format Code
 
-forge fmt# CyfrinFoundryCourse
+```shell
+forge fmt
+```
